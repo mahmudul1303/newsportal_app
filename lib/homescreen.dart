@@ -3,6 +3,7 @@ import 'package:newsportal_app/webview_launch_screen.dart';
 import 'common_card.dart'; // Make sure this import is correct for your CustomCard class
 
 class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
   final List<String> imagePaths = [
     'assets/png/amadersomoy.png',
     'assets/png/bangladesh_protidin.png',
@@ -18,12 +19,6 @@ class HomeScreen extends StatelessWidget {
     'https://dainikamadershomoy.com/',
     'https://www.bd-pratidin.com/',
     // Add more URLs as needed
-  ];
-
-  final List<VoidCallback> onTapActions = [
-    () => print('Tapped on first card'),
-    () => print('Tapped on second card'),
-    // Add more actions as needed
   ];
 
   @override
@@ -53,8 +48,10 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          WebviewLuncherScreen(webViewUrl: urls[index])),
+                      builder: (context) => WebviewLuncherScreen(
+                            webViewUrl: urls[index],
+                            newspapername: texts[index],
+                          )),
                 );
               },
             );
