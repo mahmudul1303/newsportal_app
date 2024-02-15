@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsportal_app/webview_launch_screen.dart';
 import 'common_card.dart'; // Make sure this import is correct for your CustomCard class
 
 class HomeScreen extends StatelessWidget {
@@ -12,6 +13,11 @@ class HomeScreen extends StatelessWidget {
     'Dainik Amadershomoy',
     'Bangladesh Pratidin',
     // Add more texts as needed
+  ];
+  final List<String> urls = [
+    'https://dainikamadershomoy.com/',
+    'https://www.bd-pratidin.com/',
+    // Add more URLs as needed
   ];
 
   final List<VoidCallback> onTapActions = [
@@ -42,7 +48,15 @@ class HomeScreen extends StatelessWidget {
             return CustomCard(
               imagePath: imagePaths[index],
               text: texts[index],
-              onTap: onTapActions[index],
+              // onTap: onTapActions[index],
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          WebviewLuncherScreen(webViewUrl: urls[index])),
+                );
+              },
             );
           },
         ),
