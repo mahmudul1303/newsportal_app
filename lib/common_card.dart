@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class CustomCard extends StatelessWidget {
   final String imagePath;
@@ -17,16 +18,16 @@ class CustomCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(2.0.w),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(2.0.w),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 5,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -34,14 +35,59 @@ class CustomCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(2.0.w),
               child: Image.asset(
                 imagePath,
-                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 5.0.h,
+                fit: BoxFit.contain,
               ),
             ),
-            const Divider(height: 20, thickness: 2),
-            Text(text),
+            SizedBox(
+              height: 1.0.h,
+            ),
+            Container(
+              height: 0.5.h,
+              child: Divider(
+                thickness: 2,
+                color: Colors.transparent,
+              ),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.red,
+                    Colors.orange,
+                    Colors.yellow,
+                    Colors.green,
+                    Colors.blue,
+                    Colors.indigo,
+                    Colors.purple,
+                  ],
+                  stops: [
+                    0.0,
+                    0.15,
+                    0.3,
+                    0.45,
+                    0.6,
+                    0.75,
+                    1.0,
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 0.8.h,
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: 12.0.sp, // Set your desired font size
+                fontWeight: FontWeight.w500, // Set your desired font weight
+                color: Colors.black, // Set your desired text color
+              ),
+            ),
           ],
         ),
       ),

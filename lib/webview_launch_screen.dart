@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-import 'package:sizer/sizer.dart';
-
-import 'common_app_bar.dart';
-
 class WebviewLuncherScreen extends StatefulWidget {
   const WebviewLuncherScreen(
-      {super.key, required this.webViewUrl, required this.newspapername});
+      {super.key,
+      required this.webViewUrl,
+      required this.newspapername,
+      required this.imagePath});
   final String webViewUrl;
   final String newspapername;
+  final String imagePath;
 
   @override
+  // ignore: library_private_types_in_public_api
   _WebviewLuncherScreenState createState() => _WebviewLuncherScreenState();
 }
 
@@ -23,7 +24,6 @@ class _WebviewLuncherScreenState extends State<WebviewLuncherScreen> {
   void initState() {
     super.initState();
     _webViewUrl = widget.webViewUrl;
-    // 'https://www.termsfeed.com/live/cdd80def-c35e-4eaf-b0ec-47acaebced83';
   }
 
   @override
@@ -35,7 +35,8 @@ class _WebviewLuncherScreenState extends State<WebviewLuncherScreen> {
       // ),
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: Text(widget.newspapername),
+        centerTitle: true,
+        title: Image.asset(widget.imagePath),
       ),
       body: InAppWebView(
         initialUrlRequest: URLRequest(url: Uri.parse(_webViewUrl)),
