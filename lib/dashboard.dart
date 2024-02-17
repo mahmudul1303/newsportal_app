@@ -71,7 +71,7 @@ class DashboardScreen extends StatelessWidget {
                 }, 'Live Tv News', true),
                 LiveNewsScreen(),
                 SizedBox(
-                  height: 3.0.h,
+                  height: 2.0.h,
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
