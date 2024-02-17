@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:newsportal_app/common_app_bar.dart';
+import 'package:sizer/sizer.dart';
 
 class WebviewLuncherScreen extends StatefulWidget {
   const WebviewLuncherScreen(
@@ -33,11 +35,17 @@ class _WebviewLuncherScreenState extends State<WebviewLuncherScreen> {
       //   height: 6.0.h,
       //   title: 'Webview',
       // ),
-      appBar: AppBar(
-        backgroundColor: Colors.amber,
-        centerTitle: true,
-        title: Image.asset(widget.imagePath),
+      appBar: CommonAppBar(
+        finishScreen: true,
+        height: 6.5.h,
+        image: widget.imagePath,
       ),
+
+      //  AppBar(
+      //   backgroundColor: Colors.amber,
+      //   centerTitle: true,
+      //   title: Image.asset(widget.imagePath),
+      // ),
       body: InAppWebView(
         initialUrlRequest: URLRequest(url: Uri.parse(_webViewUrl)),
         initialOptions: InAppWebViewGroupOptions(

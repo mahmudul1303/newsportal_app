@@ -29,7 +29,7 @@ class AppColors {
   static const Color colo34963A = Color(0xff34963A);
   static const Color color196E55 = Color(0xff196E55);
   static const Color colorDEDEDE = Color(0xffDEDEDE);
-  static const Color rattingStarColor = Color(0xffFAAD15);
+  static const Color rattingStarColor = Color.fromARGB(255, 255, 242, 255);
   static const Color colorF2F2F2 = Color(0XFFF2F2F2);
   static const Color iconColor = Color(0XFF196E55);
   static const Color colorDD0000 = Color(0XFFDD0000);

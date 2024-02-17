@@ -3,7 +3,9 @@ import 'package:newsportal_app/common_app_bar.dart';
 import 'package:newsportal_app/slider_screen.dart';
 import 'package:sizer/sizer.dart';
 
-import 'homescreen.dart';
+import 'job_sites_screen.dart';
+import 'live_news_chanel.dart';
+import 'newspaper_list_screen.dart';
 import 'utils/app_colors.dart';
 import 'utils/app_fonts.dart';
 
@@ -13,26 +15,107 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CommonAppBar(title: 'Dashboard', height: 6.5.h),
+        appBar: AppBar(
+          toolbarHeight: 6.5.h,
+          backgroundColor: AppColors.facebookBlue,
+          centerTitle: true,
+          title: const Text(
+            'Dashboard',
+            textScaleFactor: 1.0,
+            style: TextStyle(
+                color: AppColors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                fontFamily: AppFonts.ROBOTO),
+          ),
+        ),
+
+        // CommonAppBar(title: 'Dashboard', height: 6.5.h),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.0.w),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 1.5.h,
-              ),
-              MySliderScreen(),
-              _titleAndSeeAll(() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => HomeScreen(
-                            frompage: 'dashboard',
-                          )),
-                );
-              }, 'Newspapers', true),
-              // HomeScreen(frompage: 'dashboard'),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 1.5.h,
+                ),
+                MySliderScreen(),
+                _titleAndSeeAll(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NewspaperListScreen(
+                              frompage: 'dashboard',
+                            )),
+                  );
+                }, 'Newspapers', true),
+                NewspaperListScreen(frompage: 'others'),
+                _titleAndSeeAll(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => JobSiteScrren(
+                              frompage: 'dashboard',
+                            )),
+                  );
+                }, 'Job Sites', true),
+                JobSiteScrren(frompage: 'others'),
+                _titleAndSeeAll(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => JobSiteScrren(
+                              frompage: 'dashboard',
+                            )),
+                  );
+                }, 'Live Tv News', true),
+                LiveNewsScreen(),
+                SizedBox(
+                  height: 3.0.h,
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    height: 1.5.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.0.w),
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.red,
+                          Colors.orange,
+                          Colors.yellow,
+                          Colors.green,
+                          Colors.blue,
+                          Colors.indigo,
+                          Colors.purple,
+                        ],
+                        stops: [
+                          0.0,
+                          0.15,
+                          0.3,
+                          0.45,
+                          0.6,
+                          0.75,
+                          1.0,
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                    ),
+                  ),
+                ),
+                // _titleAndSeeAll(() {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => JobSiteScrren(
+                //               frompage: 'dashboard',
+                //             )),
+                //   );
+                // }, 'Job Sites', true),
+                // JobSiteScrren(frompage: 'others'),
+              ],
+            ),
           ),
         ));
   }

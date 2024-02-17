@@ -53,7 +53,8 @@ class CustomCard extends StatelessWidget {
                 color: Colors.transparent,
               ),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                borderRadius: BorderRadius.circular(5.0.w),
+                gradient: const LinearGradient(
                   colors: [
                     Colors.red,
                     Colors.orange,
@@ -83,7 +84,7 @@ class CustomCard extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                fontSize: 12.0.sp, // Set your desired font size
+                fontSize: 13.0.sp, // Set your desired font size
                 fontWeight: FontWeight.w500, // Set your desired font weight
                 color: Colors.black, // Set your desired text color
               ),

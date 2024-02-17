@@ -6,19 +6,21 @@ import '../../utils/app_fonts.dart';
 
 // ignore: must_be_immutable
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
-  String title;
+  String? title;
+  String? image;
   final double height;
   // final double elevation;
-  // final bool finishScreen;
+  final bool? finishScreen;
   // final bool isTitleCenter;
   // final IconData icon;
 
   CommonAppBar({
-    required this.title,
+    this.title,
     required this.height,
+    this.image,
     // required this.elevation,
 
-    // required this.finishScreen,
+    this.finishScreen = false,
     // required this.isTitleCenter,
     // required this.icon,
     Key? key,
@@ -37,17 +39,23 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       toolbarHeight: 6.5.h,
-      title: Text(
-        title,
-        textScaleFactor: 1.0,
-        style: TextStyle(
-            color: AppColors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-            fontFamily: AppFonts.ROBOTO),
-      ),
+      title: finishScreen == false
+          ? Text(
+              title!,
+              textScaleFactor: 1.0,
+              style: TextStyle(
+                  color: AppColors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: AppFonts.ROBOTO),
+            )
+          : Image.asset(
+              image!,
+              height: 4.h,
+              fit: BoxFit.contain,
+            ),
       elevation: 0.0,
-      backgroundColor: AppColors.logoColor,
+      backgroundColor: AppColors.facebookBlue,
       // backgroundColor: AppColors.white,
       leading: GestureDetector(
           onTap: () {

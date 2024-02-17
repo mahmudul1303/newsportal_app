@@ -86,11 +86,14 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:newsportal_app/utils/app_colors.dart';
 import 'package:sizer/sizer.dart';
 
 import 'utils/app_assets.dart';
 
 class MySliderScreen extends StatefulWidget {
+  const MySliderScreen({super.key});
+
   @override
   _MySliderScreenState createState() => _MySliderScreenState();
 }
@@ -110,7 +113,7 @@ class _MySliderScreenState extends State<MySliderScreen> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
-        color: Colors.amber,
+        color: AppColors.rattingStarColor,
       ),
       child: Column(
         children: [
@@ -118,7 +121,7 @@ class _MySliderScreenState extends State<MySliderScreen> {
             options: CarouselOptions(
               height: 14.0.h,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 5),
+              autoPlayInterval: const Duration(seconds: 5),
               enlargeCenterPage: true,
               viewportFraction: 1.0,
               onPageChanged: (index, reason) {
@@ -131,7 +134,7 @@ class _MySliderScreenState extends State<MySliderScreen> {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
                       child: Image.asset(
@@ -151,10 +154,10 @@ class _MySliderScreenState extends State<MySliderScreen> {
               return Container(
                 width: 12.0,
                 height: 12.0,
-                margin: EdgeInsets.symmetric(horizontal: 4.0),
+                margin: const EdgeInsets.symmetric(horizontal: 4.0),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: _currentIndex == index ? Colors.blue : Colors.grey,
+                  color: _currentIndex == index ? Colors.orange : Colors.grey,
                   border: Border.all(
                     color: Colors.white,
                     width: 2.0,

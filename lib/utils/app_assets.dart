@@ -50,4 +50,12 @@ class AppAssets {
   static const String doinikbartaman = "$PNG_ASSETS_PATH/doinikbartaman.png";
   static const String bangladeshjournal =
       "$PNG_ASSETS_PATH/bangladeshjournal.png";
+  static const String bdjobs = "$PNG_ASSETS_PATH/bdjobs.png";
+  static const String bdjobstoday = "$PNG_ASSETS_PATH/bdjobstoday.png";
+  static const String bikroyjob = "$PNG_ASSETS_PATH/bikroyjob.png";
+  static const String carrerjet = "$PNG_ASSETS_PATH/carrerjet.png";
+  static const String jagojobs = "$PNG_ASSETS_PATH/jagojobs.png";
+  static const String jobcom = "$PNG_ASSETS_PATH/jobcom.png";
+  static const String nrbjobs = "$PNG_ASSETS_PATH/nrbjobs.png";
+  static const String skilljobs = "$PNG_ASSETS_PATH/skilljobs.png";
 }
